@@ -19,8 +19,10 @@ public class Depoimento {
     private String foto;
     private String depoimento;
     private String nome;
+    private boolean ativo;
 
     public Depoimento(DadosCadastroDepoimento dados) {
+        this.ativo = true;
         this.foto = dados.foto();
         this.depoimento = dados.depoimento();
         this.nome = dados.nome();
@@ -37,5 +39,9 @@ public class Depoimento {
         if(dados.nome() != null) {
             this.nome = dados.nome();
         }
+    }
+
+    public void excluir() {
+        this.ativo = false;
     }
 }

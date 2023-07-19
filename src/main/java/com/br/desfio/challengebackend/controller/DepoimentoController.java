@@ -30,7 +30,7 @@ public class DepoimentoController {
 
     @GetMapping(value = ("/depoimentos-home"))
     public Page<DadosListagemDepoimento> listar(@PageableDefault(size = 3 ) Pageable paginacao){
-        return repository.findAll(paginacao).map(DadosListagemDepoimento::new);
+        return repository.findAllByAtivoTrue(paginacao).map(DadosListagemDepoimento::new);
     }
 
     @PutMapping
@@ -38,6 +38,13 @@ public class DepoimentoController {
     public void atualizar(@RequestBody @Valid DadosAtualizacaoDepoimentos dados) {
       var depoimento = repository.getReferenceById(dados.id());
       depoimento.atualizarInformacoes(dados);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluir(@PathVariable Long id) {
+        var depoimento = repository.getReferenceById(id);
+        depoimento.excluir();
     }
 
 }
