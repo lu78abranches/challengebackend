@@ -25,4 +25,17 @@ public class Depoimento {
         this.depoimento = dados.depoimento();
         this.nome = dados.nome();
     }
+
+    public void atualizarInformacoes(DadosAtualizacaoDepoimentos dados) {
+
+        if(dados.foto() != null) {
+            this.foto = dados.foto();
+        }
+        if(dados.depoimento() != null) {
+            this.depoimento = dados.depoimento();
+        }
+        if(dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+    }
 }
