@@ -1,43 +1,40 @@
-package com.br.desfio.challengebackend.destino;
+package com.br.desfio.challengebackend.domain.depoimento;
 
-import com.br.desfio.challengebackend.depoimento.DadosAtualizacaoDepoimentos;
-import com.br.desfio.challengebackend.depoimento.DadosCadastroDepoimento;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Table (name = "destinos")
-@Entity(name = "Destino")
+@Table(name = "depoimentos")
+@Entity(name = "Depoimento")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Destino {
-
+public class Depoimento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String foto;
+    private String depoimento;
     private String nome;
-    private Double preco;
     private boolean ativo;
 
-    public Destino(DadosCadastroDestino dados) {
+    public Depoimento(DadosCadastroDepoimento dados) {
         this.ativo = true;
         this.foto = dados.foto();
-        this.preco = dados.preco();
+        this.depoimento = dados.depoimento();
         this.nome = dados.nome();
     }
 
-    public void atualizarInformacoes(DadosAtualizacaoDestinos dados) {
+    public void atualizarInformacoes(DadosAtualizacaoDepoimentos dados) {
 
         if(dados.foto() != null) {
             this.foto = dados.foto();
         }
-        if(dados.preco() != null) {
-            this.preco = dados.preco();
+        if(dados.depoimento() != null) {
+            this.depoimento = dados.depoimento();
         }
         if(dados.nome() != null) {
             this.nome = dados.nome();
@@ -48,9 +45,3 @@ public class Destino {
         this.ativo = false;
     }
 }
-
-
-
-
-
-

@@ -3,6 +3,7 @@ package com.br.desfio.challengebackend.controller;
 
 
 import com.br.desfio.challengebackend.destino.*;
+import com.br.desfio.challengebackend.domain.destino.*;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,7 +21,7 @@ public class DestinoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity cadastrar(@RequestBody  DadosCadastroDestino dados, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity cadastrar(@RequestBody DadosCadastroDestino dados, UriComponentsBuilder uriBuilder) {
         var destino = new Destino(dados);
         repository.save(destino);
 

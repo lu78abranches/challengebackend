@@ -1,6 +1,4 @@
-package com.br.desfio.challengebackend.destino;
-
-import com.br.desfio.challengebackend.depoimento.DadosListagemDepoimento;
+package com.br.desfio.challengebackend.domain.destino;
 
 public record DadosListagemDestino(Long id, String foto, Double preco, String nome) {
 

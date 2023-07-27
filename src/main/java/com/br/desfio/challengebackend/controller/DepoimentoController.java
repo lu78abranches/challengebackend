@@ -1,7 +1,7 @@
 package com.br.desfio.challengebackend.controller;
 
-import com.br.desfio.challengebackend.depoimento.*;
-import com.br.desfio.challengebackend.destino.DadosDetalhamentoDestino;
+
+import com.br.desfio.challengebackend.domain.depoimento.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.List;
 import java.util.Random;
 
 @RestController

@@ -1,4 +1,4 @@
-package com.br.desfio.challengebackend.depoimento;
+package com.br.desfio.challengebackend.domain.depoimento;
 
 public record DadosListagemDepoimento(Long id,String foto, String depoimento, String nome) {
 
